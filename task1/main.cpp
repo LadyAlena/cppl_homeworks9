@@ -5,8 +5,7 @@
 template <typename T>
 std::vector<T> move_vectors(std::vector<T>& v_lhs, std::vector<T>& v_rhs) {
 
-	v_lhs = v_rhs;
-	v_rhs.clear();
+	v_lhs = std::move(v_rhs);
 
 	return v_lhs;
 }

@@ -29,6 +29,8 @@ big_integer::big_integer(std::string str) {
 
 big_integer::big_integer(const big_integer& other) noexcept { *this = other; }
 
+big_integer::big_integer(big_integer&& other) noexcept { *this = std::forward<big_integer>(other); }
+
 big_integer big_integer::operator+(big_integer& other) noexcept {
 
 	if (sign != other.sign) {
@@ -150,11 +152,9 @@ big_integer& big_integer::operator=(const big_integer& other) noexcept {
 }
 
 big_integer& big_integer::operator=(big_integer&& other) noexcept {
-	number = other.number;
-	sign = other.sign;
-
-	other.number.clear();
-	sign = { false, false };
+	
+	number = std::move(other.number);
+	sign = std::move(other.sign);
 
 	return *this;
 }

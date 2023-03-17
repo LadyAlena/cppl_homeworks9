@@ -12,7 +12,9 @@ int main(int argc, char** argv) {
 
 		std::cout << result << std::endl;
 
-		std::cout << num1 * 6 << std::endl;
+		result = std::move(num1);
+
+		std::cout << result << std::endl;
 
 		std::cout << num2 * (-5) << std::endl;
 

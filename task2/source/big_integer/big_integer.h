@@ -10,7 +10,7 @@ public:
 	big_integer() = default;
 	big_integer(std::string str);
 	big_integer(const big_integer& other) noexcept;
-	big_integer(big_integer&& other) noexcept { *this = other; }
+	big_integer(big_integer&& other) noexcept;
 
 	big_integer operator + (big_integer& other) noexcept;
 	big_integer operator - (big_integer& other) noexcept;
